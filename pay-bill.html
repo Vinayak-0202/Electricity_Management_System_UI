@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pay Bill - EMS</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .bill-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .bill-table th,
+      .bill-table td {
+        padding: 12px;
+        border: 1px solid #ccc;
+      }
+
+      .bill-table th {
+        background-color: #f2f2f2;
+      }
+
+      .total-amount {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+
+      .proceed-btn {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div>
+        <a href="home.html">Home</a>
+        <a href="pay-bill.html">Pay Bill</a>
+        <a href="register-complaint.html">Register Complaint</a>
+        <a href="complaint-status.html">Complaint Status</a>
+      </div>
+      <div class="welcome">
+        <span id="welcomeText">Welcome, User</span>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h2>Pending Bills</h2>
+      <table class="bill-table">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Bill No</th>
+            <th>Month</th>
+            <th>Amount (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="checkbox" class="bill-check" data-amount="1350" />
+            </td>
+            <td>BL1023</td>
+            <td>April 2025</td>
+            <td>1350</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" class="bill-check" data-amount="1420" />
+            </td>
+            <td>BL1024</td>
+            <td>May 2025</td>
+            <td>1420</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" class="bill-check" data-amount="1585" />
+            </td>
+            <td>BL1025</td>
+            <td>June 2025</td>
+            <td>1585</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="total-amount">
+        Total Amount: ₹<span id="totalAmount">0</span>
+      </div>
+
+      <div class="proceed-btn">
+        <button onclick="proceedToPay()">Proceed to Pay</button>
+      </div>
+    </div>
+
+    <script src="JS/pay-bill.js"></script>
+  </body>
+</html>

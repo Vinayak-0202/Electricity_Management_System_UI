@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register Complaint - EMS</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      textarea {
+        width: 100%;
+        height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div>
+        <a href="home.html">Home</a>
+        <a href="pay-bill.html">Pay Bill</a>
+        <a href="register-complaint.html">Register Complaint</a>
+        <a href="complaint-status.html">Complaint Status</a>
+      </div>
+      <div class="welcome">
+        <span id="welcomeText">Welcome, User</span>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h2>Register Complaint / Service Request</h2>
+      <form id="complaintForm" onsubmit="return validateComplaint()">
+        <label>Complaint/Service Type:</label>
+        <select id="type" onchange="updateCategory()" required>
+          <option value="">Select</option>
+          <option>Billing related</option>
+          <option>Voltage related</option>
+          <option>Frequent disruption</option>
+          <option>Street light related</option>
+          <option>Pole related</option>
+        </select>
+
+        <label>Category:</label>
+        <select id="category" required>
+          <option value="">Select Complaint Type First</option>
+        </select>
+
+        <input
+          type="text"
+          id="contactPerson"
+          placeholder="Contact Person"
+          required
+        />
+        <input type="text" id="landmark" placeholder="Landmark" required />
+        <input
+          type="text"
+          id="consumerNo"
+          placeholder="Consumer No (13 digits)"
+          maxlength="13"
+          required
+        />
+        <textarea
+          id="problem"
+          placeholder="Problem Description"
+          required
+        ></textarea>
+        <input
+          type="text"
+          id="mobile"
+          placeholder="Mobile Number (10 digits)"
+          maxlength="10"
+          required
+        />
+        <textarea id="address" placeholder="Address" required></textarea>
+
+        <button type="submit">Submit Complaint</button>
+        <button type="reset">Cancel</button>
+      </form>
+    </div>
+
+    <script src="JS/register-complaint.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Success</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2 style="color: green">Consumer Registration Successful!</h2>
+      <p><strong>Customer ID:</strong> <span id="cid"></span></p>
+      <p><strong>Name:</strong> <span id="cname"></span></p>
+      <p><strong>Email:</strong> <span id="cemail"></span></p>
+      <a href="login.html">Go to Login</a>
+    </div>
+    <script>
+      document.getElementById("cid").innerText =
+        localStorage.getItem("generatedId");
+      document.getElementById("cname").innerText =
+        localStorage.getItem("registeredName");
+      document.getElementById("cemail").innerText =
+        localStorage.getItem("registeredEmail");
+    </script>
+  </body>
+</html>

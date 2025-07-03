@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Complaint Status - EMS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div>
+      <a href="home.html">Home</a>
+      <a href="pay-bill.html">Pay Bill</a>
+      <a href="register-complaint.html">Register Complaint</a>
+      <a href="complaint-status.html">Complaint Status</a>
+    </div>
+    <div class="welcome">
+      <span id="welcomeText">Welcome, User</span>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+  <div class="form-container">
+    <h2>Complaint Status</h2>
+    <p>This is a dummy page. In a real system, you would fetch the complaint status from a database.</p>
+  </div>
+  <script>
+    const username = localStorage.getItem("username");
+    document.getElementById("welcomeText").innerText = "Welcome, " + username;
+    function logout() {
+      localStorage.removeItem("username");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

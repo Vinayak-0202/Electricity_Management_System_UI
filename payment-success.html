@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Success - EMS</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .receipt {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px dashed #444;
+        background-color: #f4f4f4;
+      }
+
+      button {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div>
+        <a href="home.html">Home</a>
+        <a href="pay-bill.html">Pay Bill</a>
+        <a href="register-complaint.html">Register Complaint</a>
+        <a href="complaint-status.html">Complaint Status</a>
+      </div>
+      <div class="welcome">
+        <span id="welcomeText">Welcome, User</span>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h2 style="color: green">Payment Successful!</h2>
+
+      <div class="receipt">
+        <p><strong>Name:</strong> <span id="usernameDisplay"></span></p>
+        <p><strong>Amount Paid:</strong> ₹<span id="amountDisplay"></span></p>
+        <p><strong>Transaction ID:</strong> <span id="txnId"></span></p>
+      </div>
+
+      <button onclick="downloadReceipt()">Download Receipt</button><br /><br />
+      <a href="home.html">Back to Home</a>
+    </div>
+
+    <script>
+      const username = localStorage.getItem("username") || "User";
+      const amount = localStorage.getItem("paidAmount") || "0";
+      const txnId = "TXN" + Math.floor(100000 + Math.random() * 900000);
+
+      document.getElementById("usernameDisplay").innerText = username;
+      document.getElementById("amountDisplay").innerText = amount;
+      document.getElementById("txnId").innerText = txnId;
+      document.getElementById("welcomeText").innerText = "Welcome, " + username;
+
+      function logout() {
+        localStorage.removeItem("username");
+        window.location.href = "login.html";
+      }
+
+      function downloadReceipt() {
+        const receiptText =
+          "Electricity Management System - Payment Receipt\n\n" +
+          "Customer Name: " +
+          username +
+          "\n" +
+          "Amount Paid: ₹" +
+          amount +
+          "\n" +
+          "Transaction ID: " +
+          txnId +
+          "\n" +
+          "Date: " +
+          new Date().toLocaleString() +
+          "\n";
+
+        const blob = new Blob([receiptText], { type: "text/plain" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "EMS_Payment_Receipt.txt";
+        link.click();
+      }
+    </script>
+  </body>
+</html>

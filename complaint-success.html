@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complaint Success - EMS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2 style="color: green">Complaint Registered Successfully!</h2>
+      <p><strong>Complaint ID:</strong> <span id="cid"></span></p>
+      <p><strong>Contact Person:</strong> <span id="cname"></span></p>
+      <a href="home.html">Go Back to Home</a>
+    </div>
+
+    <script>
+      document.getElementById("cid").innerText =
+        localStorage.getItem("complaintId");
+      document.getElementById("cname").innerText =
+        localStorage.getItem("contactPerson");
+    </script>
+  </body>
+</html>
